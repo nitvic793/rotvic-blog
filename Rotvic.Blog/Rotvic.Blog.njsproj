@@ -59,6 +59,7 @@
     <Compile Include="public\js\vendor\jquery.js" />
     <Compile Include="public\js\vendor\modernizr.js" />
     <Compile Include="public\js\vendor\placeholder.js" />
+    <Compile Include="routes\auth.js" />
     <Compile Include="routes\index.js" />
     <Compile Include="routes\blog.js" />
     <Compile Include="routes\users.js" />
@@ -78,6 +79,7 @@
     <Content Include="views\message.html" />
     <Content Include="views\login.html" />
     <Content Include="views\register.html" />
+    <Content Include="views\_layout.html" />
     <Content Include="views\_rightPanel.html" />
     <Content Include="views\newPost.html" />
     <Content Include="views\post.html" />
@@ -85,7 +87,6 @@
     <Content Include="views\forms\formMacros.html" />
     <Content Include="views\forms\formNewPost.html" />
     <Content Include="views\index.html" />
-    <Content Include="views\_layout.html" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\" />

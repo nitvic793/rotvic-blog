@@ -77,7 +77,7 @@ exports.UpdatePost = function (doc, callback) {
 
 exports.CheckUserOfPost = function (userId, postId, callback) {
     exports.GetPost(postId, function (doc) {
-        if (userId == doc[0].userId) {
+        if (userId.id === doc[0].userId.id) {
             callback(true);
         }
         else {
