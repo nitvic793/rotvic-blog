@@ -5,16 +5,16 @@
 {% block content %}
 
 <div class="row">
-    {% for post in posts %}
     <div class="large-9 columns" role="content">
+        {% for post in posts %}
         <article>
             <h3><a href="#">{{ post.subject }}</a></h3>
             <h6>Written by <a href="#">{{ post.name }}</a> on {{ post.date }}.</h6>
             <p>{{ post.body }}</p>
         </article>
         <hr />
+        {% endfor %}
     </div>
-    {% endfor %}
     {% include "./_rightPanel.html" %}
 </div>
 
