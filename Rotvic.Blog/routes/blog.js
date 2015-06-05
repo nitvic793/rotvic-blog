@@ -2,9 +2,12 @@
 var router = express.Router();
 var db = require('../db/db.js');
 var auth = require('./auth.js');
+
 /* GET post with specified ID */
 router.get('/post/:id', function (req, res) {
-    var payload = {};
+    var payload = {
+        user: req.user
+    };
     var id = parseInt(req.params.id);
     db.posts.GetPost(id, function (doc) {
         payload.post = doc[0];

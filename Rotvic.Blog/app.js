@@ -51,9 +51,26 @@ app.use('/blog', express.static(path.join(__dirname, 'public')));
 app.use('/blog/post/', express.static(path.join(__dirname, 'public')));
 app.use('/blog/post/edit', express.static(path.join(__dirname, 'public')));
 
+// Set locals 
+app.use(function (req, res, next) {
+    res.locals.user = req.user;
+    res.locals.title = 'Rotvic Blog';
+    next();
+});
+
+// Reset message 
+app.use(function (req, res, next) {
+    if (req.session.message) {
+        res.locals.message = req.session.message;
+        req.session.message = null;
+    }
+    next();
+});
+
 app.use('/', routes);
 app.use('/users', users);
 app.use('/blog', blog);
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
     var err = new Error('Not Found');

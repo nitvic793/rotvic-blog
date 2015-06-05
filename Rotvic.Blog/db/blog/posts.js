@@ -20,6 +20,7 @@ function getNextSequence(name,callback) {
 }
 
 exports.GetPost = function (id, callback) {
+    //note : use findOne() function and update dependent functions
     db.posts.find({ 'id': id }, function (err, doc) {
         if (!err) {
             callback(doc);

@@ -2,10 +2,28 @@
 var passport = require('passport');
 var Account = require('../models/account');
 var router = express.Router();
+var messages = require('../sessionMessages.js');
 
+function customAuthCallback(req, res, next) {
+    passport.authenticate('local', function (err, user, info) {
+        if (err) {
+            return next(err);
+        }
+        if (!user) {
+            req.session.message = messages.loginFailure;
+            return res.redirect('/login');
+        }
+        req.logIn(user, function (err) {
+            if (err) {
+                return next(err);
+            }
+            req.session.message = messages.loginSuccess;
+            return next();
+        });
+    })(req, res, next);
+}
 
 router.get('/', function (req, res) {
-    console.log(req);
     res.render('index', { title: 'Rotvic Blog' });
 });
 
@@ -29,12 +47,13 @@ router.get('/login', function (req, res) {
     res.render('login', { user : req.user });
 });
 
-router.post('/login', passport.authenticate('local'), function (req, res) {
+router.post('/login', customAuthCallback, function (req, res) {
     res.redirect('/');
 });
 
 router.get('/logout', function (req, res) {
     req.logout();
+    req.session.message = messages.logoutSuccess;
     res.redirect('/');
 });
 
