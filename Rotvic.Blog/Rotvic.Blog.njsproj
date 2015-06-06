@@ -35,6 +35,7 @@
     <Compile Include="db\blog\posts.js" />
     <Compile Include="db\blog\users.js" />
     <Compile Include="db\utility.js" />
+    <Compile Include="models\post.js" />
     <Compile Include="sessionMessages.js" />
     <Compile Include="models\account.js" />
     <Compile Include="public\js\foundation.min.js" />

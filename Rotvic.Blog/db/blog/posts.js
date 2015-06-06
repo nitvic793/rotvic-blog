@@ -1,6 +1,7 @@
 ﻿var mongojs = require('mongojs');
 var db = mongojs('rblog', ['posts','counters']);
 var utility = require('./../utility.js');
+var Post = require('../../models/post.js');
 
 function getNextSequence(name,callback) {
     db.counters.findAndModify(
@@ -21,7 +22,7 @@ function getNextSequence(name,callback) {
 
 exports.GetPost = function (id, callback) {
     //note : use findOne() function and update dependent functions
-    db.posts.find({ 'id': id }, function (err, doc) {
+    Post.findOne({ 'id': id }, function (err, doc) {
         if (!err) {
             callback(doc);
         }
@@ -34,10 +35,10 @@ exports.GetPost = function (id, callback) {
 exports.InsertPost = function (doc, callback) {
     getNextSequence('id', function (seq){
         if (seq == null) {
-            throw "Null Sequence ID";
+            throw new Error("Null Sequence ID");
         }
         doc.id = seq;
-        db.posts.insert(doc, function (err) {
+        Post.create(doc, function (err, doc) {
             if (err) {
                 callback(false);
             }
@@ -49,7 +50,7 @@ exports.InsertPost = function (doc, callback) {
 }
 
 exports.GetAllPosts = function (limit, callback) {
-    db.posts.find({}).limit(limit).sort({ date: -1 }, function (err, doc) {
+    Post.find({}).limit(limit).sort({ date: -1 }).exec(function (err, doc) {
         if (!err) {
             callback(doc);
         }
@@ -59,12 +60,24 @@ exports.GetAllPosts = function (limit, callback) {
     });
 }
 
+exports.GetPosts = function (limit, skip, callback) {
+    Post.find({}).limit(limit).skip(skip).sort({ date: -1 }).exec(function (err, doc) {
+        if (!err) {
+            callback(doc);
+        }
+        else {
+            callback(null);
+        }
+    });
+}
+
+
 exports.UpdatePost = function (doc, callback) {
     exports.GetPost(doc.id, function (old) {
         if (old != null) {
-            doc.date = old[0].date;
+            doc.date = old.date;
             doc.modified = new Date();
-            db.posts.update({ 'id': doc.id }, doc, function (err) {
+            Post.update({ 'id': doc.id }, doc, function (err) {
                 if (!err) {
                     callback(doc);
                 }
@@ -78,11 +91,19 @@ exports.UpdatePost = function (doc, callback) {
 
 exports.CheckUserOfPost = function (userId, postId, callback) {
     exports.GetPost(postId, function (doc) {
-        if (userId.id === doc[0].userId.id) {
+        if (userId.id === doc.userId.id) {
             callback(true);
         }
         else {
             callback(false);
+        }
+    });
+}
+
+exports.DeletePost = function (id, callback) {
+    Post.remove({ 'id': id }, function (err) {
+        if (err) {
+            throw err;
         }
     });
 }

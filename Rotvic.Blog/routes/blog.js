@@ -9,9 +9,10 @@ router.get('/post/:id', function (req, res) {
         user: req.user
     };
     var id = parseInt(req.params.id);
+    if (isNaN(id))
+        throw new Error("Bad argument");
     db.posts.GetPost(id, function (doc) {
-        payload.post = doc[0];
-        payload.post.date = doc[0].date.toLocaleDateString();
+        payload.post = doc;
         payload.title = "Blog";
         res.render("post", payload);
     });
@@ -46,9 +47,6 @@ router.get('/', function (req, res) {
         title:'Blog'
     };
     db.posts.GetAllPosts(3, function (doc) {
-        for (var i=0;i<doc.length;++i){
-            doc[i].date = doc[i].date.toLocaleDateString();
-        }
         payload.posts = doc;
         res.render('blogIndex', payload);
     });   
@@ -58,7 +56,7 @@ router.get('/post/edit/:id', auth.requireAuth, function (req, res) {
     var payload = {};
     var id = parseInt(req.params.id);
     db.posts.GetPost(id, function (doc) {
-        payload.post = doc[0];
+        payload.post = doc;
         payload.title = "Blog";
         res.render("editPost", payload);
     });
