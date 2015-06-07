@@ -36,6 +36,7 @@
     <Compile Include="db\blog\users.js" />
     <Compile Include="db\utility.js" />
     <Compile Include="models\post.js" />
+    <Compile Include="routes\admin.js" />
     <Compile Include="sessionMessages.js" />
     <Compile Include="models\account.js" />
     <Compile Include="public\js\foundation.min.js" />
@@ -61,7 +62,7 @@
     <Compile Include="public\js\vendor\jquery.js" />
     <Compile Include="public\js\vendor\modernizr.js" />
     <Compile Include="public\js\vendor\placeholder.js" />
-    <Compile Include="routes\auth.js" />
+    <Compile Include="auth.js" />
     <Compile Include="routes\index.js" />
     <Compile Include="routes\blog.js" />
     <Compile Include="routes\users.js" />
@@ -78,6 +79,7 @@
     <Content Include="views\forms\formEditPost.html" />
     <Content Include="views\forms\formLogin.html" />
     <Content Include="views\forms\formRegister.html" />
+    <Content Include="views\admin.html" />
     <Content Include="views\message.html" />
     <Content Include="views\login.html" />
     <Content Include="views\register.html" />

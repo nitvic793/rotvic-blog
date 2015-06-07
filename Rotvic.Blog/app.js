@@ -12,6 +12,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var blog = require('./routes/blog');
+var admin = require('./routes/admin.js');
 
 var app = express();
 
@@ -47,11 +48,12 @@ passport.deserializeUser(Account.deserializeUser());
 // mongoose
 mongoose.connect('mongodb://localhost/rblog');
 
+//custom static paths
 app.use('/blog', express.static(path.join(__dirname, 'public')));
 app.use('/blog/post/', express.static(path.join(__dirname, 'public')));
 app.use('/blog/post/edit', express.static(path.join(__dirname, 'public')));
 
-// Set locals 
+// Set locals middleware
 app.use(function (req, res, next) {
     res.locals.user = req.user;
     res.locals.title = 'Rotvic Blog';
@@ -67,9 +69,11 @@ app.use(function (req, res, next) {
     next();
 });
 
+// Routes
 app.use('/', routes);
 app.use('/users', users);
 app.use('/blog', blog);
+app.use('/admin', admin);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

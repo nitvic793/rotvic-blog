@@ -1,7 +1,7 @@
 ﻿var express = require('express');
 var router = express.Router();
 var db = require('../db/db.js');
-var auth = require('./auth.js');
+var auth = require('../auth.js');
 
 /* GET post with specified ID */
 router.get('/post/:id', function (req, res) {

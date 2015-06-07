@@ -17,9 +17,10 @@
                 <div class="nav-bar right">
                     <ul class="button-group">
                         {% if user %}
+                        <li><a href="/blog/post/" class="button">New Post</a></li>
                         <li><a href="/logout" class="button">Logout</a></li>
                         {% else %}
-                        <li><a href="/login" class="button">Login</a></li>
+                        <li><a href="/blog" class="button">Blog</a></li>
                         {% endif %}
                     </ul>
                 </div>
