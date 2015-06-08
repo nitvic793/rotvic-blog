@@ -60,13 +60,13 @@ exports.GetAllPosts = function (limit, callback) {
     });
 }
 
-exports.GetPosts = function (limit, skip, callback) {
+exports.GetPosts = function (limit, skip, userId, callback) {
     Post.find({}).limit(limit).skip(skip).sort({ date: -1 }).exec(function (err, doc) {
         if (!err) {
             callback(doc);
         }
         else {
-            callback(null);
+            throw err;
         }
     });
 }
@@ -102,9 +102,7 @@ exports.CheckUserOfPost = function (userId, postId, callback) {
 
 exports.DeletePost = function (id, callback) {
     Post.remove({ 'id': id }, function (err) {
-        if (err) {
-            throw err;
-        }
+        callback(err);
     });
 }
 

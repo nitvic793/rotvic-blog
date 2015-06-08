@@ -81,4 +81,16 @@ router.post('/post/update/:id', auth.requireAuth, function (req, res) {
     });
 });
 
+router.get('/post/delete/:id', auth.requireAuth, function (req, res) {
+    var id = parseInt(req.params.id);
+    //TODO : Need to check if user deleting is the owner of the post
+    db.posts.DeletePost(id, function (err) {
+        if (!err) {
+            res.send({ status: 'Success!' });
+        }
+        else {
+            res.send({ status: 'Failed!' });
+        }
+    });
+});
 module.exports = router;

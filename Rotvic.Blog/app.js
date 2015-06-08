@@ -50,6 +50,7 @@ mongoose.connect('mongodb://localhost/rblog');
 
 //custom static paths
 app.use('/blog', express.static(path.join(__dirname, 'public')));
+app.use('/admin', express.static(path.join(__dirname, 'public')));
 app.use('/blog/post/', express.static(path.join(__dirname, 'public')));
 app.use('/blog/post/edit', express.static(path.join(__dirname, 'public')));
 

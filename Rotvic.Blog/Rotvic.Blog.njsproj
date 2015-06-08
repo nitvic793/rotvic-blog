@@ -82,6 +82,7 @@
     <Content Include="views\admin.html" />
     <Content Include="views\message.html" />
     <Content Include="views\login.html" />
+    <Content Include="views\partials\adminPosts.html" />
     <Content Include="views\register.html" />
     <Content Include="views\_layout.html" />
     <Content Include="views\_rightPanel.html" />
@@ -109,6 +110,7 @@
     <Folder Include="routes\" />
     <Folder Include="views\" />
     <Folder Include="views\forms\" />
+    <Folder Include="views\partials\" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />

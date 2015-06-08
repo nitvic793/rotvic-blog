@@ -9,7 +9,7 @@
         {% for post in posts %}
         <article>
             <h3><a href="#">{{ post.subject }}</a></h3>
-            <h6>Written by <a href="#">{{ post.name }}</a> on {{ post.date.toLocaleDateString() }}.</h6>
+            <h6>Written by <a href="#">{{ post.name }}</a> on {{ post.date.toLocaleString() }}.</h6>
             <p>{{ post.body }}</p>
         </article>
         <hr />

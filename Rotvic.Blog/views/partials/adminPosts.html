@@ -1,0 +1,30 @@
+﻿
+<div class="row">
+    <div class="large-9 columns">
+        <h3>Posts</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th width="300">Post</th>
+                    <th width="150">Date</th>
+                    <th width="150">Operations</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for post in posts %}
+                <tr>
+                    <td>
+                        <a href="/blog/post/{{post.id}}">
+                            {{post.subject}}
+                        </a>
+                    </td>
+                    <td>{{post.date.toLocaleString()}}</td>
+                    <td><a href="/blog/post/edit/{{post.id}}">Edit</a> 
+                    <a href="/blog/post/edit/{{post.id}}">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
