@@ -11,7 +11,7 @@
                     </label>
                     <label>
                         Body
-                        <textarea name="body" id="body">{{ post.body }}</textarea>
+                        <textarea name="body" id="body" rows="20">{{ post.body }}</textarea>
                     </label>
                     <label>Choose type</label>
                     <input type="radio" name="publishType" value="draft" id="publishTypeDraft" {% if post.publishType == 'draft' %}checked="checked" {% endif %}>

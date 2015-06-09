@@ -67,6 +67,7 @@
     <Compile Include="routes\blog.js" />
     <Compile Include="routes\users.js" />
     <Compile Include="bin\www" />
+    <Content Include="config.json" />
     <Content Include="package.json" />
     <Content Include="public\css\foundation.css" />
     <Content Include="public\css\foundation.min.css" />

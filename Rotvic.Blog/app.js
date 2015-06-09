@@ -9,6 +9,8 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
+var config = require('./config.json');
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var blog = require('./routes/blog');
@@ -46,9 +48,9 @@ passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
 
 // mongoose
-mongoose.connect('mongodb://localhost/rblog');
+mongoose.connect('mongodb://' + config.mongodbUri);
 
-//custom static paths
+//custom static paths. There maybe better ways to do this.
 app.use('/blog', express.static(path.join(__dirname, 'public')));
 app.use('/admin', express.static(path.join(__dirname, 'public')));
 app.use('/blog/post/', express.static(path.join(__dirname, 'public')));
@@ -57,7 +59,7 @@ app.use('/blog/post/edit', express.static(path.join(__dirname, 'public')));
 // Set locals middleware
 app.use(function (req, res, next) {
     res.locals.user = req.user;
-    res.locals.title = 'Rotvic Blog';
+    res.locals.title = config.title;
     next();
 });
 

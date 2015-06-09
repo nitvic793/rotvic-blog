@@ -1,0 +1,6 @@
+﻿{
+	"title": "Nitish Victor",
+	"mongodbUri": "localhost/rblog",
+	"db":"rblog",
+	"collections": ["posts", "counters", "accounts", "users"]
+}

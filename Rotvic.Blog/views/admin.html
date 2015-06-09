@@ -10,8 +10,24 @@
 
 <hr/>
 
+<div class="row">
+    <div class="large-9 columns">
+        <h4>Operations</h4>
+        <a href="#" class="button medium">Change Password</a>
+    </div>
+</div>
+
+<hr />
+
+<div class="row">
+    <div class="large-9 columns">
+        <h4>Website Configuration</h4>
+        <p><strong>To be implemented</strong></p>
+    </div>
+</div>
+
 <script>
-    $('#posts').load('/admin/getPosts');
+    $('#posts').load('/admin/getPosts?'+Math.random());
 </script>
 
 {% endblock %}

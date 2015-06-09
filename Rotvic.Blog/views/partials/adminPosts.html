@@ -6,7 +6,8 @@
             <thead>
                 <tr>
                     <th width="300">Post</th>
-                    <th width="150">Date</th>
+                    <th width="200">Date</th>
+                    <th width="200">Status</th>
                     <th width="150">Operations</th>
                 </tr>
             </thead>
@@ -19,8 +20,10 @@
                         </a>
                     </td>
                     <td>{{post.date.toLocaleString()}}</td>
-                    <td><a href="/blog/post/edit/{{post.id}}">Edit</a> 
-                    <a href="/blog/post/edit/{{post.id}}">Delete</a>
+                    <td>{{post.publishType}}</td>
+                    <td>
+                        <a href="/blog/post/edit/{{post.id}}">Edit</a> 
+                        <a href="#" onclick="deletepost({{post.id}})">Delete</a>
                     </td>
                 </tr>
                 {% endfor %}
@@ -28,3 +31,12 @@
         </table>
     </div>
 </div>
+
+<script>
+    function deletepost(id) {
+        $.ajax('/blog/post/delete/' + id)
+                .done(function (data) {
+                    document.location.reload();
+                });
+    }
+</script>

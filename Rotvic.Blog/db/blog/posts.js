@@ -1,5 +1,6 @@
-﻿var mongojs = require('mongojs');
-var db = mongojs('rblog', ['posts','counters']);
+﻿var config = require('../../config.json');
+var mongojs = require('mongojs');
+var db = mongojs(config.mongodbUri, config.collections);
 var utility = require('./../utility.js');
 var Post = require('../../models/post.js');
 
@@ -50,7 +51,18 @@ exports.InsertPost = function (doc, callback) {
 }
 
 exports.GetAllPosts = function (limit, callback) {
-    Post.find({}).limit(limit).sort({ date: -1 }).exec(function (err, doc) {
+    Post.find({publishType:'publish'}).limit(limit).sort({ date: -1 }).exec(function (err, doc) {
+        if (!err) {
+            callback(doc);
+        }
+        else {
+            callback(null);
+        }
+    });
+}
+
+exports.GetAllPostsByPage = function (limit, skip, callback) {
+    Post.find({ publishType: 'publish' }).limit(limit).skip(skip).sort({ date: -1 }).exec(function (err, doc) {
         if (!err) {
             callback(doc);
         }
@@ -106,3 +118,13 @@ exports.DeletePost = function (id, callback) {
     });
 }
 
+exports.GetPublishedPostCount = function (callback) {
+    Post.count({ publishType: 'publish' }, function (err, count) {
+        if (!err) {
+            callback(count);
+        }
+        else {
+            throw err;
+        }
+    });
+}

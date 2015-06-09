@@ -2,6 +2,7 @@
 var router = express.Router();
 var db = require('../db/db.js');
 var auth = require('../auth.js');
+var messages = require('../sessionMessages.js');
 
 /* GET post with specified ID */
 router.get('/post/:id', function (req, res) {
@@ -13,8 +14,16 @@ router.get('/post/:id', function (req, res) {
         throw new Error("Bad argument");
     db.posts.GetPost(id, function (doc) {
         payload.post = doc;
-        payload.title = "Blog";
-        res.render("post", payload);
+        if (doc == null) {
+            res.status(404).render('error');
+        }
+        else if (doc.publishType === 'draft' && !req.isAuthenticated()) {
+            req.session.message = messages.postNotReady;
+            res.redirect('/blog/');
+        }
+        else {
+            res.render("post", payload);
+        }
     });
 });
 
@@ -44,21 +53,61 @@ router.post('/post/addnew', auth.requireAuth, function (req, res) {
 
 router.get('/', function (req, res) {
     var payload = {
-        title:'Blog'
     };
-    db.posts.GetAllPosts(3, function (doc) {
-        payload.posts = doc;
-        res.render('blogIndex', payload);
-    });   
+    db.posts.GetPublishedPostCount(function (count) {
+        db.posts.GetAllPosts(3, function (doc) {
+            payload.posts = doc;
+            if (count <= 3) {
+                payload.older = false;
+            }
+            else {
+                payload.older = true;
+            }
+            payload.newer = false;
+            payload.page = 1;
+            res.render('blogIndex', payload);
+        });
+    }); 
 });
 
+router.get('/:page', function (req, res) {
+    var payload = {
+        title: 'Blog'
+    };
+    var pageNo = parseInt(req.params.page);
+    var skip = 3 * (pageNo - 1);
+    db.posts.GetPublishedPostCount(function(count){
+        db.posts.GetAllPostsByPage(3, skip, function (doc) {
+            payload.posts = doc;
+            payload.page = pageNo;
+            if (count <= skip + 3) {
+                payload.older = false;
+            }
+            else {
+                payload.older = true;
+            }
+            if (pageNo != 1) {
+                payload.newer = true;
+            }
+            else {
+                payload.newer = false;
+            }
+            res.render('blogIndex', payload);
+        });
+    });
+});
 router.get('/post/edit/:id', auth.requireAuth, function (req, res) {
     var payload = {};
     var id = parseInt(req.params.id);
     db.posts.GetPost(id, function (doc) {
-        payload.post = doc;
-        payload.title = "Blog";
-        res.render("editPost", payload);
+        if (doc == null) {
+            res.status(404).render('error');
+        } 
+        else {
+            payload.post = doc;
+            payload.title = "Edit Post";
+            res.render("editPost", payload);
+        }
     });
 });
 
@@ -86,9 +135,11 @@ router.get('/post/delete/:id', auth.requireAuth, function (req, res) {
     //TODO : Need to check if user deleting is the owner of the post
     db.posts.DeletePost(id, function (err) {
         if (!err) {
+            req.session.message = messages.deletePostSuccess;
             res.send({ status: 'Success!' });
         }
         else {
+            req.session.message = messages.deletePostSuccess;
             res.send({ status: 'Failed!' });
         }
     });

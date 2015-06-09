@@ -24,7 +24,7 @@ function customAuthCallback(req, res, next) {
 }
 
 router.get('/', function (req, res) {
-    res.render('index', { title: 'Rotvic Blog' });
+    res.render('index');
 });
 
 router.get('/register', function (req, res) {
