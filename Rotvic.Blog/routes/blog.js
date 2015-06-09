@@ -71,9 +71,7 @@ router.get('/', function (req, res) {
 });
 
 router.get('/:page', function (req, res) {
-    var payload = {
-        title: 'Blog'
-    };
+    var payload = { };
     var pageNo = parseInt(req.params.page);
     var skip = 3 * (pageNo - 1);
     db.posts.GetPublishedPostCount(function(count){

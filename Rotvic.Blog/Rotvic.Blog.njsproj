@@ -31,10 +31,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.js" />
+    <Compile Include="db\admin.js" />
     <Compile Include="db\db.js" />
     <Compile Include="db\blog\posts.js" />
     <Compile Include="db\blog\users.js" />
     <Compile Include="db\utility.js" />
+    <Compile Include="models\content.js" />
     <Compile Include="models\post.js" />
     <Compile Include="routes\admin.js" />
     <Compile Include="sessionMessages.js" />
@@ -79,6 +81,7 @@
     <Content Include="views\editPost.html" />
     <Content Include="views\forms\formEditPost.html" />
     <Content Include="views\forms\formLogin.html" />
+    <Content Include="views\forms\formWebsiteContent.html" />
     <Content Include="views\forms\formRegister.html" />
     <Content Include="views\admin.html" />
     <Content Include="views\message.html" />

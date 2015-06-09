@@ -50,6 +50,7 @@ exports.InsertPost = function (doc, callback) {
     });    
 }
 
+// Get all latest posts
 exports.GetAllPosts = function (limit, callback) {
     Post.find({publishType:'publish'}).limit(limit).sort({ date: -1 }).exec(function (err, doc) {
         if (!err) {
@@ -120,6 +121,17 @@ exports.DeletePost = function (id, callback) {
 
 exports.GetPublishedPostCount = function (callback) {
     Post.count({ publishType: 'publish' }, function (err, count) {
+        if (!err) {
+            callback(count);
+        }
+        else {
+            throw err;
+        }
+    });
+}
+
+exports.GetAllPostCount = function (callback) {
+    Post.count({}, function (err, count) {
         if (!err) {
             callback(count);
         }

@@ -8,6 +8,7 @@ var swig = require('swig');
 var mongoose = require('mongoose');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var db = require('./db/db.js');
 
 var config = require('./config.json');
 
@@ -56,10 +57,35 @@ app.use('/admin', express.static(path.join(__dirname, 'public')));
 app.use('/blog/post/', express.static(path.join(__dirname, 'public')));
 app.use('/blog/post/edit', express.static(path.join(__dirname, 'public')));
 
+/*Custom Middlewares*/
+
+//Set locals for side panel in blog
+app.use('/blog', function (req, res, next) {
+    db.posts.GetAllPosts(5, function (docs) {
+        if (docs == null) {
+            next();
+        }
+        else {
+            res.locals.sidePosts = docs;
+            next();
+        }
+    });
+});
+
+//Set locals for admin page
+app.use('/admin', function (req, res, next) {
+    db.admin.LoadContent(function (doc) {
+        res.locals.content = doc;
+        console.log(doc);
+        next();
+    });
+});
+
 // Set locals middleware
 app.use(function (req, res, next) {
     res.locals.user = req.user;
     res.locals.title = config.title;
+    res.locals.headerTitle = config.title;
     next();
 });
 

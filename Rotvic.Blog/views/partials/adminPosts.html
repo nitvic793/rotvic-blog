@@ -27,8 +27,18 @@
                     </td>
                 </tr>
                 {% endfor %}
-            </tbody>
+            </tbody>  
         </table>
+        {% if prev %}
+        <a class="left" onclick="loadPostsPage({{page+1}})">Prev</a>
+        {% else %}
+        <span class="left">Prev</span>
+        {% endif %}
+        {% if next %}
+        <a class="right" onclick="loadPostsPage({{page-1}})">Next</a>
+        {% else %}
+        <span class="right">Next</span>
+        {% endif %}
     </div>
 </div>
 
@@ -39,4 +49,5 @@
                     document.location.reload();
                 });
     }
+    
 </script>

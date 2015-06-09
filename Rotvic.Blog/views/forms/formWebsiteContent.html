@@ -1,0 +1,37 @@
+﻿<div class="row">
+    <div class="large-9 columns" role="form">
+        <h4>Website Content</h4>
+        <form method="post" action="changeContent" name="contentform">
+            <div class="row">
+                <div class="large-9 columns">                    
+                    <label>
+                        About Me
+                        <textarea name="aboutMe" id="aboutMe" rows="10">{% if content %}{{content.aboutMe}}{% endif %}</textarea>
+                    </label>                    
+                    <label>
+                        Profile Image URL
+                        <input type="text" placeholder="Profile Image URL" name="profileImageUrl" id="profileImageUrl" {% if content %}value="{{content.profileImageUrl}}" {% endif %} />
+                    </label> 
+                    <label>
+                        Header Message
+                        <input type="text" placeholder="Header Message" name="headerMessage" id="headerMessage" {% if content %}value="{{content.headerMessage}}" {% endif %} />
+                    </label> 
+                    <label>
+                        LinkedIn URL
+                        <input type="text" placeholder="LinkedIn URL" name="linkedInUrl" id="linkedInUrl" {% if content %}value="{{content.linkedInUrl}}" {% endif %} />
+                    </label> 
+                    <label>
+                        Twitter Handle
+                        <input type="text" placeholder="@TwitterHandle" name="twitterHandle" id="twitterHandle" {% if content %}value="{{content.twitterHandle}}" {% endif %} />
+                    </label> 
+                    <label>
+                        Github Username
+                        <input type="text" placeholder="Github Username" name="githubUsername" id="githubUsername" {% if content %}value="{{content.githubUsername}}" {% endif %} />
+                    </label> 
+                    <input type="submit" class="button small" value="Save" />         
+                </div>
+            </div>
+        </form>
+        <hr />
+    </div>
+</div>

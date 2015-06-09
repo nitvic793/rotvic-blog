@@ -3,6 +3,7 @@ var passport = require('passport');
 var Account = require('../models/account');
 var router = express.Router();
 var messages = require('../sessionMessages.js');
+var db = require('../db/db.js');
 
 function customAuthCallback(req, res, next) {
     passport.authenticate('local', function (err, user, info) {
@@ -24,7 +25,10 @@ function customAuthCallback(req, res, next) {
 }
 
 router.get('/', function (req, res) {
-    res.render('index');
+    db.admin.LoadContent(function (doc) {
+        var payload = { content: doc };
+        res.render('index', payload);
+    });
 });
 
 router.get('/register', function (req, res) {
