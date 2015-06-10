@@ -1,0 +1,451 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <Name>Rotvic.Blog</Name>
+    <RootNamespace>Rotvic.Blog</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>17a91369-25e7-4316-acf8-1476238fef0a</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>bin\www</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <ProjectView>ShowAllFiles</ProjectView>
+    <NodejsPort>1337</NodejsPort>
+    <StartWebBrowser>true</StartWebBrowser>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="app.js" />
+    <Compile Include="db\admin.js" />
+    <Compile Include="db\db.js" />
+    <Compile Include="db\blog\posts.js" />
+    <Compile Include="db\blog\users.js" />
+    <Compile Include="db\utility.js" />
+    <Compile Include="models\content.js" />
+    <Compile Include="models\post.js" />
+    <Compile Include="routes\admin.js" />
+    <Compile Include="sessionMessages.js" />
+    <Compile Include="models\account.js" />
+    <Compile Include="public\js\foundation.min.js" />
+    <Compile Include="public\js\foundation\foundation.abide.js" />
+    <Compile Include="public\js\foundation\foundation.accordion.js" />
+    <Compile Include="public\js\foundation\foundation.alert.js" />
+    <Compile Include="public\js\foundation\foundation.clearing.js" />
+    <Compile Include="public\js\foundation\foundation.dropdown.js" />
+    <Compile Include="public\js\foundation\foundation.equalizer.js" />
+    <Compile Include="public\js\foundation\foundation.interchange.js" />
+    <Compile Include="public\js\foundation\foundation.joyride.js" />
+    <Compile Include="public\js\foundation\foundation.js" />
+    <Compile Include="public\js\foundation\foundation.magellan.js" />
+    <Compile Include="public\js\foundation\foundation.offcanvas.js" />
+    <Compile Include="public\js\foundation\foundation.orbit.js" />
+    <Compile Include="public\js\foundation\foundation.reveal.js" />
+    <Compile Include="public\js\foundation\foundation.slider.js" />
+    <Compile Include="public\js\foundation\foundation.tab.js" />
+    <Compile Include="public\js\foundation\foundation.tooltip.js" />
+    <Compile Include="public\js\foundation\foundation.topbar.js" />
+    <Compile Include="public\js\vendor\fastclick.js" />
+    <Compile Include="public\js\vendor\jquery.cookie.js" />
+    <Compile Include="public\js\vendor\jquery.js" />
+    <Compile Include="public\js\vendor\modernizr.js" />
+    <Compile Include="public\js\vendor\placeholder.js" />
+    <Compile Include="auth.js" />
+    <Compile Include="routes\index.js" />
+    <Compile Include="routes\blog.js" />
+    <Compile Include="routes\users.js" />
+    <Compile Include="bin\www" />
+    <Content Include="config.json" />
+    <Content Include="package.json" />
+    <Content Include="public\css\.DS_Store" />
+    <Content Include="public\css\.fontcustom-data" />
+    <Content Include="public\css\foundation-icons.css" />
+    <Content Include="public\css\foundation-icons.eot" />
+    <Content Include="public\css\foundation-icons.svg" />
+    <Content Include="public\css\foundation-icons.ttf" />
+    <Content Include="public\css\foundation-icons.woff" />
+    <Content Include="public\css\foundation.css" />
+    <Content Include="public\css\foundation.min.css" />
+    <Content Include="public\css\normalize.css" />
+    <Content Include="public\css\svgs\fi-address-book.svg" />
+    <Content Include="public\css\svgs\fi-alert.svg" />
+    <Content Include="public\css\svgs\fi-align-center.svg" />
+    <Content Include="public\css\svgs\fi-align-justify.svg" />
+    <Content Include="public\css\svgs\fi-align-left.svg" />
+    <Content Include="public\css\svgs\fi-align-right.svg" />
+    <Content Include="public\css\svgs\fi-anchor.svg" />
+    <Content Include="public\css\svgs\fi-annotate.svg" />
+    <Content Include="public\css\svgs\fi-archive.svg" />
+    <Content Include="public\css\svgs\fi-arrow-down.svg" />
+    <Content Include="public\css\svgs\fi-arrow-left.svg" />
+    <Content Include="public\css\svgs\fi-arrow-right.svg" />
+    <Content Include="public\css\svgs\fi-arrow-up.svg" />
+    <Content Include="public\css\svgs\fi-arrows-compress.svg" />
+    <Content Include="public\css\svgs\fi-arrows-expand.svg" />
+    <Content Include="public\css\svgs\fi-arrows-in.svg" />
+    <Content Include="public\css\svgs\fi-arrows-out.svg" />
+    <Content Include="public\css\svgs\fi-asl.svg" />
+    <Content Include="public\css\svgs\fi-asterisk.svg" />
+    <Content Include="public\css\svgs\fi-at-sign.svg" />
+    <Content Include="public\css\svgs\fi-background-color.svg" />
+    <Content Include="public\css\svgs\fi-battery-empty.svg" />
+    <Content Include="public\css\svgs\fi-battery-full.svg" />
+    <Content Include="public\css\svgs\fi-battery-half.svg" />
+    <Content Include="public\css\svgs\fi-bitcoin-circle.svg" />
+    <Content Include="public\css\svgs\fi-bitcoin.svg" />
+    <Content Include="public\css\svgs\fi-blind.svg" />
+    <Content Include="public\css\svgs\fi-bluetooth.svg" />
+    <Content Include="public\css\svgs\fi-bold.svg" />
+    <Content Include="public\css\svgs\fi-book-bookmark.svg" />
+    <Content Include="public\css\svgs\fi-book.svg" />
+    <Content Include="public\css\svgs\fi-bookmark.svg" />
+    <Content Include="public\css\svgs\fi-braille.svg" />
+    <Content Include="public\css\svgs\fi-burst-new.svg" />
+    <Content Include="public\css\svgs\fi-burst-sale.svg" />
+    <Content Include="public\css\svgs\fi-burst.svg" />
+    <Content Include="public\css\svgs\fi-calendar.svg" />
+    <Content Include="public\css\svgs\fi-camera.svg" />
+    <Content Include="public\css\svgs\fi-check.svg" />
+    <Content Include="public\css\svgs\fi-checkbox.svg" />
+    <Content Include="public\css\svgs\fi-clipboard-notes.svg" />
+    <Content Include="public\css\svgs\fi-clipboard-pencil.svg" />
+    <Content Include="public\css\svgs\fi-clipboard.svg" />
+    <Content Include="public\css\svgs\fi-clock.svg" />
+    <Content Include="public\css\svgs\fi-closed-caption.svg" />
+    <Content Include="public\css\svgs\fi-cloud.svg" />
+    <Content Include="public\css\svgs\fi-comment-minus.svg" />
+    <Content Include="public\css\svgs\fi-comment-quotes.svg" />
+    <Content Include="public\css\svgs\fi-comment-video.svg" />
+    <Content Include="public\css\svgs\fi-comment.svg" />
+    <Content Include="public\css\svgs\fi-comments.svg" />
+    <Content Include="public\css\svgs\fi-compass.svg" />
+    <Content Include="public\css\svgs\fi-contrast.svg" />
+    <Content Include="public\css\svgs\fi-credit-card.svg" />
+    <Content Include="public\css\svgs\fi-crop.svg" />
+    <Content Include="public\css\svgs\fi-crown.svg" />
+    <Content Include="public\css\svgs\fi-css3.svg" />
+    <Content Include="public\css\svgs\fi-database.svg" />
+    <Content Include="public\css\svgs\fi-die-five.svg" />
+    <Content Include="public\css\svgs\fi-die-four.svg" />
+    <Content Include="public\css\svgs\fi-die-one.svg" />
+    <Content Include="public\css\svgs\fi-die-six.svg" />
+    <Content Include="public\css\svgs\fi-die-three.svg" />
+    <Content Include="public\css\svgs\fi-die-two.svg" />
+    <Content Include="public\css\svgs\fi-dislike.svg" />
+    <Content Include="public\css\svgs\fi-dollar-bill.svg" />
+    <Content Include="public\css\svgs\fi-dollar.svg" />
+    <Content Include="public\css\svgs\fi-download.svg" />
+    <Content Include="public\css\svgs\fi-eject.svg" />
+    <Content Include="public\css\svgs\fi-elevator.svg" />
+    <Content Include="public\css\svgs\fi-euro.svg" />
+    <Content Include="public\css\svgs\fi-eye.svg" />
+    <Content Include="public\css\svgs\fi-fast-forward.svg" />
+    <Content Include="public\css\svgs\fi-female-symbol.svg" />
+    <Content Include="public\css\svgs\fi-female.svg" />
+    <Content Include="public\css\svgs\fi-filter.svg" />
+    <Content Include="public\css\svgs\fi-first-aid.svg" />
+    <Content Include="public\css\svgs\fi-flag.svg" />
+    <Content Include="public\css\svgs\fi-folder-add.svg" />
+    <Content Include="public\css\svgs\fi-folder-lock.svg" />
+    <Content Include="public\css\svgs\fi-folder.svg" />
+    <Content Include="public\css\svgs\fi-foot.svg" />
+    <Content Include="public\css\svgs\fi-foundation.svg" />
+    <Content Include="public\css\svgs\fi-graph-bar.svg" />
+    <Content Include="public\css\svgs\fi-graph-horizontal.svg" />
+    <Content Include="public\css\svgs\fi-graph-pie.svg" />
+    <Content Include="public\css\svgs\fi-graph-trend.svg" />
+    <Content Include="public\css\svgs\fi-guide-dog.svg" />
+    <Content Include="public\css\svgs\fi-hearing-aid.svg" />
+    <Content Include="public\css\svgs\fi-heart.svg" />
+    <Content Include="public\css\svgs\fi-home.svg" />
+    <Content Include="public\css\svgs\fi-html5.svg" />
+    <Content Include="public\css\svgs\fi-indent-less.svg" />
+    <Content Include="public\css\svgs\fi-indent-more.svg" />
+    <Content Include="public\css\svgs\fi-info.svg" />
+    <Content Include="public\css\svgs\fi-italic.svg" />
+    <Content Include="public\css\svgs\fi-key.svg" />
+    <Content Include="public\css\svgs\fi-laptop.svg" />
+    <Content Include="public\css\svgs\fi-layout.svg" />
+    <Content Include="public\css\svgs\fi-lightbulb.svg" />
+    <Content Include="public\css\svgs\fi-like.svg" />
+    <Content Include="public\css\svgs\fi-link.svg" />
+    <Content Include="public\css\svgs\fi-list-bullet.svg" />
+    <Content Include="public\css\svgs\fi-list-number.svg" />
+    <Content Include="public\css\svgs\fi-list-thumbnails.svg" />
+    <Content Include="public\css\svgs\fi-list.svg" />
+    <Content Include="public\css\svgs\fi-lock.svg" />
+    <Content Include="public\css\svgs\fi-loop.svg" />
+    <Content Include="public\css\svgs\fi-magnifying-glass.svg" />
+    <Content Include="public\css\svgs\fi-mail.svg" />
+    <Content Include="public\css\svgs\fi-male-female.svg" />
+    <Content Include="public\css\svgs\fi-male-symbol.svg" />
+    <Content Include="public\css\svgs\fi-male.svg" />
+    <Content Include="public\css\svgs\fi-map.svg" />
+    <Content Include="public\css\svgs\fi-marker.svg" />
+    <Content Include="public\css\svgs\fi-megaphone.svg" />
+    <Content Include="public\css\svgs\fi-microphone.svg" />
+    <Content Include="public\css\svgs\fi-minus-circle.svg" />
+    <Content Include="public\css\svgs\fi-minus.svg" />
+    <Content Include="public\css\svgs\fi-mobile-signal.svg" />
+    <Content Include="public\css\svgs\fi-mobile.svg" />
+    <Content Include="public\css\svgs\fi-monitor.svg" />
+    <Content Include="public\css\svgs\fi-mountains.svg" />
+    <Content Include="public\css\svgs\fi-music.svg" />
+    <Content Include="public\css\svgs\fi-next.svg" />
+    <Content Include="public\css\svgs\fi-no-dogs.svg" />
+    <Content Include="public\css\svgs\fi-no-smoking.svg" />
+    <Content Include="public\css\svgs\fi-page-add.svg" />
+    <Content Include="public\css\svgs\fi-page-copy.svg" />
+    <Content Include="public\css\svgs\fi-page-csv.svg" />
+    <Content Include="public\css\svgs\fi-page-delete.svg" />
+    <Content Include="public\css\svgs\fi-page-doc.svg" />
+    <Content Include="public\css\svgs\fi-page-edit.svg" />
+    <Content Include="public\css\svgs\fi-page-export-csv.svg" />
+    <Content Include="public\css\svgs\fi-page-export-doc.svg" />
+    <Content Include="public\css\svgs\fi-page-export-pdf.svg" />
+    <Content Include="public\css\svgs\fi-page-export.svg" />
+    <Content Include="public\css\svgs\fi-page-filled.svg" />
+    <Content Include="public\css\svgs\fi-page-multiple.svg" />
+    <Content Include="public\css\svgs\fi-page-pdf.svg" />
+    <Content Include="public\css\svgs\fi-page-remove.svg" />
+    <Content Include="public\css\svgs\fi-page-search.svg" />
+    <Content Include="public\css\svgs\fi-page.svg" />
+    <Content Include="public\css\svgs\fi-paint-bucket.svg" />
+    <Content Include="public\css\svgs\fi-paperclip.svg" />
+    <Content Include="public\css\svgs\fi-pause.svg" />
+    <Content Include="public\css\svgs\fi-paw.svg" />
+    <Content Include="public\css\svgs\fi-paypal.svg" />
+    <Content Include="public\css\svgs\fi-pencil.svg" />
+    <Content Include="public\css\svgs\fi-photo.svg" />
+    <Content Include="public\css\svgs\fi-play-circle.svg" />
+    <Content Include="public\css\svgs\fi-play-video.svg" />
+    <Content Include="public\css\svgs\fi-play.svg" />
+    <Content Include="public\css\svgs\fi-plus.svg" />
+    <Content Include="public\css\svgs\fi-pound.svg" />
+    <Content Include="public\css\svgs\fi-power.svg" />
+    <Content Include="public\css\svgs\fi-previous.svg" />
+    <Content Include="public\css\svgs\fi-price-tag.svg" />
+    <Content Include="public\css\svgs\fi-pricetag-multiple.svg" />
+    <Content Include="public\css\svgs\fi-print.svg" />
+    <Content Include="public\css\svgs\fi-prohibited.svg" />
+    <Content Include="public\css\svgs\fi-projection-screen.svg" />
+    <Content Include="public\css\svgs\fi-puzzle.svg" />
+    <Content Include="public\css\svgs\fi-quote.svg" />
+    <Content Include="public\css\svgs\fi-record.svg" />
+    <Content Include="public\css\svgs\fi-refresh.svg" />
+    <Content Include="public\css\svgs\fi-results-demographics.svg" />
+    <Content Include="public\css\svgs\fi-results.svg" />
+    <Content Include="public\css\svgs\fi-rewind-ten.svg" />
+    <Content Include="public\css\svgs\fi-rewind.svg" />
+    <Content Include="public\css\svgs\fi-rss.svg" />
+    <Content Include="public\css\svgs\fi-safety-cone.svg" />
+    <Content Include="public\css\svgs\fi-save.svg" />
+    <Content Include="public\css\svgs\fi-share.svg" />
+    <Content Include="public\css\svgs\fi-sheriff-badge.svg" />
+    <Content Include="public\css\svgs\fi-shield.svg" />
+    <Content Include="public\css\svgs\fi-shopping-bag.svg" />
+    <Content Include="public\css\svgs\fi-shopping-cart.svg" />
+    <Content Include="public\css\svgs\fi-shuffle.svg" />
+    <Content Include="public\css\svgs\fi-skull.svg" />
+    <Content Include="public\css\svgs\fi-social-500px.svg" />
+    <Content Include="public\css\svgs\fi-social-adobe.svg" />
+    <Content Include="public\css\svgs\fi-social-amazon.svg" />
+    <Content Include="public\css\svgs\fi-social-android.svg" />
+    <Content Include="public\css\svgs\fi-social-apple.svg" />
+    <Content Include="public\css\svgs\fi-social-behance.svg" />
+    <Content Include="public\css\svgs\fi-social-bing.svg" />
+    <Content Include="public\css\svgs\fi-social-blogger.svg" />
+    <Content Include="public\css\svgs\fi-social-delicious.svg" />
+    <Content Include="public\css\svgs\fi-social-designer-news.svg" />
+    <Content Include="public\css\svgs\fi-social-deviant-art.svg" />
+    <Content Include="public\css\svgs\fi-social-digg.svg" />
+    <Content Include="public\css\svgs\fi-social-dribbble.svg" />
+    <Content Include="public\css\svgs\fi-social-drive.svg" />
+    <Content Include="public\css\svgs\fi-social-dropbox.svg" />
+    <Content Include="public\css\svgs\fi-social-evernote.svg" />
+    <Content Include="public\css\svgs\fi-social-facebook.svg" />
+    <Content Include="public\css\svgs\fi-social-flickr.svg" />
+    <Content Include="public\css\svgs\fi-social-forrst.svg" />
+    <Content Include="public\css\svgs\fi-social-foursquare.svg" />
+    <Content Include="public\css\svgs\fi-social-game-center.svg" />
+    <Content Include="public\css\svgs\fi-social-github.svg" />
+    <Content Include="public\css\svgs\fi-social-google-plus.svg" />
+    <Content Include="public\css\svgs\fi-social-hacker-news.svg" />
+    <Content Include="public\css\svgs\fi-social-hi5.svg" />
+    <Content Include="public\css\svgs\fi-social-instagram.svg" />
+    <Content Include="public\css\svgs\fi-social-joomla.svg" />
+    <Content Include="public\css\svgs\fi-social-lastfm.svg" />
+    <Content Include="public\css\svgs\fi-social-linkedin.svg" />
+    <Content Include="public\css\svgs\fi-social-medium.svg" />
+    <Content Include="public\css\svgs\fi-social-myspace.svg" />
+    <Content Include="public\css\svgs\fi-social-orkut.svg" />
+    <Content Include="public\css\svgs\fi-social-path.svg" />
+    <Content Include="public\css\svgs\fi-social-picasa.svg" />
+    <Content Include="public\css\svgs\fi-social-pinterest.svg" />
+    <Content Include="public\css\svgs\fi-social-rdio.svg" />
+    <Content Include="public\css\svgs\fi-social-reddit.svg" />
+    <Content Include="public\css\svgs\fi-social-skillshare.svg" />
+    <Content Include="public\css\svgs\fi-social-skype.svg" />
+    <Content Include="public\css\svgs\fi-social-smashing-mag.svg" />
+    <Content Include="public\css\svgs\fi-social-snapchat.svg" />
+    <Content Include="public\css\svgs\fi-social-spotify.svg" />
+    <Content Include="public\css\svgs\fi-social-squidoo.svg" />
+    <Content Include="public\css\svgs\fi-social-stack-overflow.svg" />
+    <Content Include="public\css\svgs\fi-social-steam.svg" />
+    <Content Include="public\css\svgs\fi-social-stumbleupon.svg" />
+    <Content Include="public\css\svgs\fi-social-treehouse.svg" />
+    <Content Include="public\css\svgs\fi-social-tumblr.svg" />
+    <Content Include="public\css\svgs\fi-social-twitter.svg" />
+    <Content Include="public\css\svgs\fi-social-vimeo.svg" />
+    <Content Include="public\css\svgs\fi-social-windows.svg" />
+    <Content Include="public\css\svgs\fi-social-xbox.svg" />
+    <Content Include="public\css\svgs\fi-social-yahoo.svg" />
+    <Content Include="public\css\svgs\fi-social-yelp.svg" />
+    <Content Include="public\css\svgs\fi-social-youtube.svg" />
+    <Content Include="public\css\svgs\fi-social-zerply.svg" />
+    <Content Include="public\css\svgs\fi-social-zurb.svg" />
+    <Content Include="public\css\svgs\fi-sound.svg" />
+    <Content Include="public\css\svgs\fi-star.svg" />
+    <Content Include="public\css\svgs\fi-stop.svg" />
+    <Content Include="public\css\svgs\fi-strikethrough.svg" />
+    <Content Include="public\css\svgs\fi-subscript.svg" />
+    <Content Include="public\css\svgs\fi-superscript.svg" />
+    <Content Include="public\css\svgs\fi-tablet-landscape.svg" />
+    <Content Include="public\css\svgs\fi-tablet-portrait.svg" />
+    <Content Include="public\css\svgs\fi-target-two.svg" />
+    <Content Include="public\css\svgs\fi-target.svg" />
+    <Content Include="public\css\svgs\fi-telephone-accessible.svg" />
+    <Content Include="public\css\svgs\fi-telephone.svg" />
+    <Content Include="public\css\svgs\fi-text-color.svg" />
+    <Content Include="public\css\svgs\fi-thumbnails.svg" />
+    <Content Include="public\css\svgs\fi-ticket.svg" />
+    <Content Include="public\css\svgs\fi-torso-business.svg" />
+    <Content Include="public\css\svgs\fi-torso-female.svg" />
+    <Content Include="public\css\svgs\fi-torso.svg" />
+    <Content Include="public\css\svgs\fi-torsos-all-female.svg" />
+    <Content Include="public\css\svgs\fi-torsos-all.svg" />
+    <Content Include="public\css\svgs\fi-torsos-female-male.svg" />
+    <Content Include="public\css\svgs\fi-torsos-male-female.svg" />
+    <Content Include="public\css\svgs\fi-torsos.svg" />
+    <Content Include="public\css\svgs\fi-trash.svg" />
+    <Content Include="public\css\svgs\fi-trees.svg" />
+    <Content Include="public\css\svgs\fi-trophy.svg" />
+    <Content Include="public\css\svgs\fi-underline.svg" />
+    <Content Include="public\css\svgs\fi-universal-access.svg" />
+    <Content Include="public\css\svgs\fi-unlink.svg" />
+    <Content Include="public\css\svgs\fi-unlock.svg" />
+    <Content Include="public\css\svgs\fi-upload-cloud.svg" />
+    <Content Include="public\css\svgs\fi-upload.svg" />
+    <Content Include="public\css\svgs\fi-usb.svg" />
+    <Content Include="public\css\svgs\fi-video.svg" />
+    <Content Include="public\css\svgs\fi-volume-none.svg" />
+    <Content Include="public\css\svgs\fi-volume-strike.svg" />
+    <Content Include="public\css\svgs\fi-volume.svg" />
+    <Content Include="public\css\svgs\fi-web.svg" />
+    <Content Include="public\css\svgs\fi-wheelchair.svg" />
+    <Content Include="public\css\svgs\fi-widget.svg" />
+    <Content Include="public\css\svgs\fi-wrench.svg" />
+    <Content Include="public\css\svgs\fi-x-circle.svg" />
+    <Content Include="public\css\svgs\fi-x.svg" />
+    <Content Include="public\css\svgs\fi-yen.svg" />
+    <Content Include="public\css\svgs\fi-zoom-in.svg" />
+    <Content Include="public\css\svgs\fi-zoom-out.svg" />
+    <Content Include="public\img\.gitkeep" />
+    <Content Include="public\stylesheets\style.css" />
+    <Content Include="README.md" />
+    <Content Include="views\blogIndex.html" />
+    <Content Include="views\editPost.html" />
+    <Content Include="views\forms\formEditPost.html" />
+    <Content Include="views\forms\formLogin.html" />
+    <Content Include="views\forms\formWebsiteContent.html" />
+    <Content Include="views\forms\formRegister.html" />
+    <Content Include="views\admin.html" />
+    <Content Include="views\message.html" />
+    <Content Include="views\login.html" />
+    <Content Include="views\partials\adminPosts.html" />
+    <Content Include="views\register.html" />
+    <Content Include="views\_layout.html" />
+    <Content Include="views\_rightPanel.html" />
+    <Content Include="views\newPost.html" />
+    <Content Include="views\post.html" />
+    <Content Include="views\error.html" />
+    <Content Include="views\forms\formMacros.html" />
+    <Content Include="views\forms\formNewPost.html" />
+    <Content Include="views\index.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\" />
+    <Folder Include="db\" />
+    <Folder Include="db\blog\" />
+    <Folder Include="models\" />
+    <Folder Include="public\" />
+    <Folder Include="public\css\" />
+    <Folder Include="public\css\svgs\" />
+    <Folder Include="public\images\" />
+    <Folder Include="public\img\" />
+    <Folder Include="public\javascripts\" />
+    <Folder Include="public\js\" />
+    <Folder Include="public\js\foundation\" />
+    <Folder Include="public\js\vendor\" />
+    <Folder Include="public\stylesheets\" />
+    <Folder Include="routes\" />
+    <Folder Include="views\" />
+    <Folder Include="views\forms\" />
+    <Folder Include="views\partials\" />
+  </ItemGroup>
+  <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48022/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

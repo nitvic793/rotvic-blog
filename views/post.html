@@ -1,0 +1,19 @@
+﻿{% extends '_layout.html' %}
+
+{% block title %} {{headerTitle}} {% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="large-9 columns" role="content">
+        <article>
+            <h3><a href="#">{{ post.subject }}</a></h3>
+            <h4><small> <i class="fi-clock"></i> Written by <a href="#">{{ post.name }}</a> on {{ post.date | date('F jS, Y',-330) }}</small></h4>
+            {{ post.body | raw }}
+        </article>
+        <hr />
+    </div>
+    {% include "./_rightPanel.html" %}
+</div>
+
+ {% endblock %}

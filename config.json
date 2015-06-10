@@ -1,0 +1,7 @@
+﻿{
+	"title": "Nitish Victor",
+	"mongodbUri": "rotvic:***REMOVED***@ds031741.mongolab.com:31741/rblog",
+	"db":"rblog",
+	"collections": ["posts", "counters", "accounts", "users"],
+	"enableRegistration": false
+}

@@ -1,0 +1,39 @@
+﻿{% extends '_layout.html' %}
+
+{% block title %} {{headerTitle}} {% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="large-12 columns">
+            <div class="fadeInBox rectBox left"><span class="centerBox">{{content.headerMessage}}</span></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <hr>
+        <div class="large-8 columns" >
+            <h4><i class="fi-torso blueText"></i> About Me </h4> 
+            {{content.aboutMe | raw}}
+        </div>
+        <div class="large-4 columns">
+            <img src="{{content.profileImageUrl}}" height="70%" width="70%" class="shadow fadeInBox imgBorder">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="large-12 columns">
+            <hr>
+            <h4><i class="fi-telephone"></i> Contact Me</h4>
+
+            <div class="large-4 columns">
+               <i class="fi-social-linkedin"></i> LinkedIn: <a href="{{content.linkedInUrl}}">Nitish</a>
+            </div>
+            <div class="large-4 columns">
+                <i class="fi-social-twitter"></i> Twitter: <a href="https://twitter.com/{{content.twitterHandle}}">{{content.twitterHandle}}</a>
+            </div>
+            <div class="large-4 columns">
+                <i class="fi-social-github"></i> Github: <a href="http://github.com/{{content.githubUsername}}">{{content.githubUsername}}</a></div>
+        </div>
+    </div>
+
+   {% endblock %}

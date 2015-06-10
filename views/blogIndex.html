@@ -1,0 +1,36 @@
+﻿{% extends '_layout.html' %}
+
+{% block title %} {{headerTitle}} {% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="large-9 columns" role="content">
+        {% for post in posts %}
+        <article>
+            <h3><a href="/blog/post/{{post.id}}">{{ post.subject }}</a></h3>
+            <h4><small> <i class="fi-clock"></i> Written by <a href="#">{{ post.name }}</a> on {{ post.date | date('F jS, Y',-330) }}</small></h4>
+            {{ post.body | raw }}
+        </article>
+        <hr />
+        {% endfor %}
+    </div>
+    
+    {% include "./_rightPanel.html" %}
+    
+</div>
+<div class="row">
+    <div class="large-9 columns">
+        {% if older %}
+        <a href="/blog/{{page+1}}" class="left">&lt;Older</a>
+        {% else %}
+        <span class="left">&lt;Older</span>
+        {% endif %}
+        {% if newer %}
+        <a href="/blog/{{page-1}}" class="right">Newer&gt;</a>
+        {% else %}
+        <span class="right">Newer&gt;</span>
+        {% endif %}
+    </div>
+</div>
+ {% endblock %}
