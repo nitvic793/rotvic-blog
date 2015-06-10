@@ -7,8 +7,8 @@
   },
   "description": "Rotvic.Blog",
   "author": {
-    "name": "Rotvic",
-    "email": ""
+    "name": "Nitish Victor",
+    "email": "nithishvictor@gmail.com"
   },
   "dependencies": {
     "body-parser": "~1.8.1",
