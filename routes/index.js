@@ -4,25 +4,7 @@ var Account = require('../models/account');
 var router = express.Router();
 var messages = require('../sessionMessages.js');
 var db = require('../db/db.js');
-
-function customAuthCallback(req, res, next) {
-    passport.authenticate('local', function (err, user, info) {
-        if (err) {
-            return next(err);
-        }
-        if (!user) {
-            req.session.message = messages.loginFailure;
-            return res.redirect('/login');
-        }
-        req.logIn(user, function (err) {
-            if (err) {
-                return next(err);
-            }
-            req.session.message = messages.loginSuccess;
-            return next();
-        });
-    })(req, res, next);
-}
+var auth = require('../auth.js');
 
 router.get('/', function (req, res) {
     db.admin.LoadContent(function (doc) {
@@ -51,7 +33,7 @@ router.get('/login', function (req, res) {
     res.render('login', { user : req.user });
 });
 
-router.post('/login', customAuthCallback, function (req, res) {
+router.post('/login', auth.customAuthCallback, function (req, res) {
     res.redirect('/');
 });
 
@@ -65,5 +47,13 @@ router.get('/ping', function (req, res) {
     res.status(200).send("pong!");
 });
 
+router.post('/changePassword', auth.requireAuth, function (req, res) {
+    var password = req.body.password;
+    req.user.setPassword(password, function (err) {
+        req.user.save();
+        req.session.message = messages.updateSuccess;
+        res.redirect('/users');
+    });
+});
 
 module.exports = router;
