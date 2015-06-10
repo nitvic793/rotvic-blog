@@ -1,6 +1,6 @@
 ﻿var mongojs = require('mongojs');
 var db = mongojs('rblog', ['posts', 'counters','users']);
-var utility = require('./../utility.js');
+var Account = require('../../models/account.js');
 
 exports.getUserName = function (id, callback) {
     db.users.find({ 'id': id }, function (err, doc) {

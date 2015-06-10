@@ -370,6 +370,7 @@
     <Content Include="views\blogIndex.html" />
     <Content Include="views\editPost.html" />
     <Content Include="views\forms\formEditPost.html" />
+    <Content Include="views\forms\formChangePassword.html" />
     <Content Include="views\forms\formLogin.html" />
     <Content Include="views\forms\formWebsiteContent.html" />
     <Content Include="views\forms\formRegister.html" />
@@ -377,6 +378,7 @@
     <Content Include="views\message.html" />
     <Content Include="views\login.html" />
     <Content Include="views\partials\adminPosts.html" />
+    <Content Include="views\user.html" />
     <Content Include="views\register.html" />
     <Content Include="views\_layout.html" />
     <Content Include="views\_rightPanel.html" />

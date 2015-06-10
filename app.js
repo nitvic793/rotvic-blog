@@ -53,6 +53,7 @@ mongoose.connect('mongodb://' + config.mongodbUri);
 
 //custom static paths. There maybe better ways to do this.
 app.use('/blog', express.static(path.join(__dirname, 'public')));
+app.use('/users', express.static(path.join(__dirname, 'public')));
 app.use('/admin', express.static(path.join(__dirname, 'public')));
 app.use('/blog/post/', express.static(path.join(__dirname, 'public')));
 app.use('/blog/post/edit', express.static(path.join(__dirname, 'public')));
