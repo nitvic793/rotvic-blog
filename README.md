@@ -8,7 +8,7 @@ Personal blog system.
 ### Deployment
 
 ```sh
-$ git clone [git-repo-url] 
+$ git clone https://github.com/nitvic793/rotvic-blog.git 
 $ cd rotvic-blog
 $ npm install
 ```
