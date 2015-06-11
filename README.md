@@ -13,8 +13,8 @@ $ cd rotvic-blog
 $ npm install
 ```
 
-*Open config.json and ensure mongodburi is pointing to a valid mongodb server url. Make other changes in the config if needed.
-*Run the file ./bin/www 
+- Open config.json and ensure mongodburi is pointing to a valid mongodb server url. Make other changes in the config if needed.
+- Run the file ./bin/www 
 
 ### Further development
 
