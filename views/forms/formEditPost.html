@@ -1,5 +1,5 @@
 ﻿<div class="row">
-    <div class="large-9 columns" role="form">
+    <div class="large-12 columns" role="form">
         <form method="post" action="/blog/post/update/{{ post.id }}" name="updatePost">
             <input type="hidden" name="date" value="{{ post.date }}" />
             <input type="hidden" name="id" value="{{ post.id }}" />
@@ -13,6 +13,10 @@
                         Body
                         <textarea name="body" id="body" rows="20">{{ post.body }}</textarea>
                     </label>
+                    <label>
+                        Meta Description
+                        <textarea name="metaDescription" id="body" rows="8">{{post.metaDescription}}</textarea>
+                    </label> 
                     <label>Choose type</label>
                     <input type="radio" name="publishType" value="draft" id="publishTypeDraft" {% if post.publishType == 'draft' %}checked="checked" {% endif %}>
                     <label for="publishTypeDraft">Draft</label>

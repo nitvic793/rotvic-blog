@@ -9,7 +9,8 @@ var Post = new Schema({
     date: Date,
     modified: Date,
     name: String,
-    publishType: String
+    publishType: String,
+    metaDescription: String
 });
 
 module.exports = mongoose.model('post', Post);

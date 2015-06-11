@@ -1,6 +1,6 @@
 ﻿{% extends '_layout.html' %}
 
-{% block title %} {{headerTitle}} {% endblock %}
+{% block title %} {{headerTitle}} | {{post.subject}} {% endblock %}
 
 {% block content %}
 
@@ -10,6 +10,9 @@
             <h3><a href="#">{{ post.subject }}</a></h3>
             <h4><small> <i class="fi-clock"></i> Written by <a href="#">{{ post.name }}</a> on {{ post.date | date('F jS, Y',-330) }}</small></h4>
             {{ post.body | raw }}
+            {% if user %}
+            <span class="left"><a href="/blog/post/edit/{{post.id}}"><i class="fi-pencil"></i></a></span>
+            {% endif %}
         </article>
         <hr />
     </div>

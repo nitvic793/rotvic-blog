@@ -1,5 +1,5 @@
 ﻿<div class="row">
-    <div class="large-9 columns" role="form">
+    <div class="large-12 columns" role="form">
         <form method="post" action="addnew" name="newpost">
             <div class="row">
                 <div class="large-9 columns">
@@ -11,6 +11,10 @@
                         Body
                         <textarea name="body" id="body" rows="20"></textarea>
                     </label>    
+                    <label>
+                        Meta Description
+                        <textarea name="metaDescription" id="body" rows="8"></textarea>
+                    </label> 
                     <label>Choose type</label>
                     <input type="radio" name="publishType" value="draft" id="publishTypeDraft" checked="checked"><label for="publishTypeDraft">Draft</label>
                     <input type="radio" name="publishType" value="publish" id="publishTypePublish"><label for="publishTypePublish">Publish</label> 
