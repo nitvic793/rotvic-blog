@@ -8,7 +8,8 @@ var Content = new Schema({
     headerMessage: String,
     linkedInUrl: String,
     twitterHandle: String,
-    githubUsername: String
+    githubUsername: String,
+    facebookUrl: String
 });
 
 module.exports = mongoose.model('content', Content);
